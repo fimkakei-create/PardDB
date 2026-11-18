@@ -1,0 +1,74 @@
+mpn,fam,sub,maker,pkg,pin,v,i,p,note,hfe1,hfe2,ft,vsat,vf,trr,rds,vth,qg
+BC546B,bjt,npn,onsemi/Philips,TO-92,CBE,65,0.1,0.5,hFE B,200,450,300,0.25
+BC547B,bjt,npn,onsemi/Philips,TO-92,CBE,45,0.1,0.5,hFE B,200,450,300,0.25
+BC547C,bjt,npn,onsemi/Philips,TO-92,CBE,45,0.1,0.5,hFE C,420,800,300,0.25
+BC556B,bjt,pnp,onsemi/Philips,TO-92,CBE,65,0.1,0.5,hFE B,200,450,150,0.3
+BC557B,bjt,pnp,onsemi/Philips,TO-92,CBE,45,0.1,0.5,hFE B,200,450,150,0.3
+BC337-40,bjt,npn,onsemi,TO-92,CBE,45,0.8,0.625,hFE group 40,250,630,100,0.7
+BC327-40,bjt,pnp,onsemi,TO-92,CBE,45,0.8,0.625,pair BC337,250,630,100,0.7
+BC847B,bjt,npn,Nexperia,SOT-23,BEC,45,0.1,0.25,SMD mark 1E,200,450,100,0.2
+BC857B,bjt,pnp,Nexperia,SOT-23,BEC,45,0.1,0.25,SMD mark 3E,200,450,100,0.2
+2N3904,bjt,npn,onsemi,TO-92,EBC,40,0.2,0.625,,100,300,300,0.2
+2N3906,bjt,pnp,onsemi,TO-92,EBC,40,0.2,0.625,pair 2N3904,100,300,250,0.25
+MMBT3904,bjt,npn,onsemi,SOT-23,BEC,40,0.2,0.3,SMD mark 1AM,100,300,300,0.2
+MMBT3906,bjt,pnp,onsemi,SOT-23,BEC,40,0.2,0.3,SMD mark 2A,100,300,250,0.25
+2N2222A,bjt,npn,onsemi,TO-18,EBC,40,0.8,0.5,Ptot@Ta=25,100,300,300,0.3
+PN2222A,bjt,npn,onsemi,TO-92,EBC,40,0.6,0.625,,100,300,300,0.3
+2N5551,bjt,npn,onsemi,TO-92,EBC,160,0.6,0.625,HV,80,250,100,0.2
+2N5401,bjt,pnp,onsemi,TO-92,EBC,150,0.6,0.625,HV; pair 2N5551,50,240,100,0.3
+SS8050,bjt,npn,onsemi,TO-92,EBC,25,1.5,1,,85,300,100,0.5
+SS8550,bjt,pnp,onsemi,TO-92,EBC,25,1.5,1,pair SS8050,85,300,100,0.5
+BD139,bjt,npn,ST,TO-126,ECB,80,1.5,12.5,Ptot@Tc=25,40,160,190,0.5
+BD140,bjt,pnp,ST,TO-126,ECB,80,1.5,12.5,pair BD139,40,160,190,0.5
+TIP31C,bjt,npn,ST,TO-220,BCE,100,3,40,,25,50,3,1.2
+TIP32C,bjt,pnp,ST,TO-220,BCE,100,3,40,pair TIP31C,25,50,3,1.2
+TIP41C,bjt,npn,ST,TO-220,BCE,100,6,65,,15,75,3,1.5
+TIP42C,bjt,pnp,ST,TO-220,BCE,100,6,65,pair TIP41C,15,75,3,1.5
+TIP122,bjt,npn,ST,TO-220,BCE,100,5,65,Darlington,1000,,,2
+TIP127,bjt,pnp,ST,TO-220,BCE,100,5,65,Darlington; pair TIP122,1000,,,2
+MJE13003,bjt,npn,onsemi,TO-126,check,400,1.5,40,Vceo400/Vces700; SMPS,8,40
+MJE13005,bjt,npn,onsemi,TO-220,BCE,400,4,75,Vces700; SMPS,8,40
+MJE13007,bjt,npn,onsemi,TO-220,BCE,400,8,80,Vces700; SMPS,8,40
+MJE13009,bjt,npn,onsemi,TO-220,BCE,400,12,100,Vces700; SMPS,8,40
+2SC5200,bjt,npn,Toshiba,TO-3PL,BCE,230,15,150,audio; pair 2SA1943,55,160,30
+2SA1943,bjt,pnp,Toshiba,TO-3PL,BCE,230,15,150,audio; pair 2SC5200,55,160,30
+MJL3281A,bjt,npn,onsemi,TO-264,BCE,260,15,200,audio; pair MJL1302A,,,30
+MJL1302A,bjt,pnp,onsemi,TO-264,BCE,260,15,200,audio; pair MJL3281A,,,30
+IRF540N,mos,nch,Infineon/IR,TO-220AB,GDS,100,33,130,Rds@Vgs=10V,,,,,,,44,4,71
+IRFZ44N,mos,nch,Infineon/IR,TO-220AB,GDS,55,49,94,Rds@Vgs=10V,,,,,,,17.5,4,63
+IRF3205,mos,nch,Infineon/IR,TO-220AB,GDS,55,110,200,Rds@Vgs=10V,,,,,,,8,4,146
+IRLZ44N,mos,nch,Infineon/IR,TO-220AB,GDS,55,47,110,logic-level; Rds@Vgs=5V,,,,,,,22,2,48
+IRF9540N,mos,pch,Infineon/IR,TO-220AB,GDS,100,23,140,Rds@Vgs=-10V,,,,,,,117,4
+IRF740,mos,nch,Infineon/IR,TO-220AB,GDS,400,10,125,Rds@Vgs=10V,,,,,,,550,4,63
+IRF840,mos,nch,Infineon/IR,TO-220AB,GDS,500,8,125,Rds@Vgs=10V,,,,,,,850,4,63
+IRFP250N,mos,nch,Infineon/IR,TO-247,GDS,200,30,214,Rds@Vgs=10V,,,,,,,75,4
+IRFP260N,mos,nch,Infineon/IR,TO-247,GDS,200,50,300,Rds@Vgs=10V,,,,,,,40,4
+IRFP460,mos,nch,Infineon/IR,TO-247,GDS,500,20,280,Rds@Vgs=10V,,,,,,,270,4
+SPP20N60C3,mos,nch,Infineon,TO-220,GDS,600,20,208,CoolMOS; PFC/SMPS,,,,,,,190,4
+2N7000,mos,nch,onsemi,TO-92,SGD,60,0.2,0.4,Rds@Vgs=10V,,,,,,,5000,3
+2N7002,mos,nch,Nexperia,SOT-23,GSD,60,0.3,0.35,SMD mark 702; approx,,,,,,,2000,2.5
+AO3400,mos,nch,AOS,SOT-23,GSD,30,5.7,1.4,logic-level; Rds@4.5V,,,,,,,48,1.5
+AO3401,mos,pch,AOS,SOT-23,GSD,30,4,1.4,logic-level; Rds@-4.5V,,,,,,,60,1.5
+IRG4PC50UD,igbt,igbt_d,Infineon/IR,TO-247,GCE,600,55,,co-pack diode; motor/SMPS,,,,1.65
+IRG4PC40UD,igbt,igbt_d,Infineon/IR,TO-247,GCE,600,40,,co-pack diode,,,,1.6
+FGA25N120ANTD,igbt,igbt_d,onsemi,TO-3P(N),GCE,1200,25,,induction cooker; Ic@Tc=100,,,,2.4
+FGH40N60SFD,igbt,igbt_d,onsemi,TO-247,GCE,600,40,,welding inverter; co-pack,,,,1.9
+H20R1203,igbt,igbt_d,Infineon,TO-247,GCE,1200,20,,induction cooker; co-pack,,,,1.9
+1N4148,dio,sw,Vishay,DO-35,AK,100,0.2,0.5,switching,,,,,1,4
+1N4001,dio,std,Vishay,DO-41,AK,50,1,,rectifier,,,,,1.1
+1N4004,dio,std,Vishay,DO-41,AK,400,1,,rectifier,,,,,1.1
+1N4007,dio,std,Vishay,DO-41,AK,1000,1,,rectifier,,,,,1.1
+1N5408,dio,std,Vishay,DO-201AD,AK,1000,3,,rectifier,,,,,1.2
+1N5817,dio,sch,Vishay,DO-41,AK,20,1,,Schottky,,,,,0.45
+1N5819,dio,sch,Vishay,DO-41,AK,40,1,,Schottky,,,,,0.6
+1N5822,dio,sch,Vishay,DO-201AD,AK,40,3,,Schottky,,,,,0.525
+SS14,dio,sch,onsemi,SMA,AK,40,1,,SMD Schottky,,,,,0.5
+SS34,dio,sch,onsemi,SMA,AK,40,3,,SMD Schottky,,,,,0.5
+FR107,dio,fast,Vishay,DO-41,AK,1000,1,,fast recovery,,,,,1.3,500
+FR207,dio,fast,Vishay,DO-201AD,AK,1000,2,,fast recovery,,,,,1.3,500
+UF4004,dio,ufr,Vishay,DO-41,AK,400,1,,ultrafast,,,,,1.7,50
+UF4007,dio,ufr,Vishay,DO-41,AK,1000,1,,ultrafast,,,,,1.7,75
+ES1J,dio,ufr,onsemi,SMA,AK,600,1,,SMD ultrafast,,,,,1.7,25
+MUR460,dio,ufr,onsemi,TO-220AC,AK,600,4,,ultrafast,,,,,1.28,75
+MBR2045CT,dio,sch,onsemi,TO-220AB,AKA,45,20,,dual common cathode 10A/leg,,,,,0.55
+MBR20100CT,dio,sch,onsemi,TO-220AB,AKA,100,20,,dual common cathode 10A/leg,,,,,0.85
