@@ -1329,7 +1329,7 @@ fun PinoutScreen(p: Part) {
     val ctx = LocalContext.current
     Column(Modifier.fillMaxSize().padding(horizontal = 16.dp).verticalScroll(rememberScrollState())) {
         Text(p.mpn, fontSize = 24.sp, fontWeight = FontWeight.Bold)
-        Text(p.pkg + " · " + typeRu(p), fontSize = 12.5.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Text(p.pkg + " · " + p.typeRu, fontSize = 12.5.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
         Spacer(Modifier.height(12.dp))
         if (p.pin == "check") {
             Tile {
