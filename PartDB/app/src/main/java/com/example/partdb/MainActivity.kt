@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.sp
 class MainActivity : ComponentActivity() {
     override fun onCreate(s: Bundle?) {
         super.onCreate(s)
-        Repo.load(this); MarkRepo.load(this); Prefs.load(this)
+        Repo.load(this); MarkRepo.load(this); Prefs.load(this); Shop.init(this)
         setContent { Theme { App() } }
     }
 }
@@ -66,6 +66,7 @@ sealed interface Scr {
     data class Analogs(val p: Part) : Scr
     data class Pick(val base: Part) : Scr
     data class Compare(val a: Part, val b: Part) : Scr
+    data class Pinout(val p: Part) : Scr
 }
 
 @Composable
@@ -84,6 +85,7 @@ fun App() {
                         is Scr.Analogs -> "Аналоги"
                         is Scr.Pick -> "С чем сравнить?"
                         is Scr.Compare -> "Сравнение"
+                        is Scr.Pinout -> "Цоколёвка"
                         else -> "PartDB"
                     }, fontSize = 18.sp, fontWeight = FontWeight.SemiBold)
                 },
@@ -96,13 +98,14 @@ fun App() {
         bottomBar = {
             if (cur == null) NavigationBar(
                 containerColor = MaterialTheme.colorScheme.surface, tonalElevation = 0.dp) {
-                listOf(Triple("Каталог", "🔎", 0), Triple("SMD", "🏷", 1), Triple("Избранное", "★", 2))
+                listOf(Triple("Каталог", "🔎", 0), Triple("SMD", "🏷", 1),
+                    Triple("Мастерская", "🧰", 2), Triple("Избранное", "★", 3))
                     .forEach { item ->
                         NavigationBarItem(
                             selected = tab == item.third,
                             onClick = { tab = item.third },
                             icon = { Text(item.second, fontSize = 17.sp) },
-                            label = { Text(item.first, fontSize = 11.sp) })
+                            label = { Text(item.first, fontSize = 10.5.sp) })
                     }
             }
         }
@@ -110,12 +113,15 @@ fun App() {
         Box(Modifier.padding(pad).fillMaxSize()) {
             when {
                 cur is Scr.Detail -> DetailScreen(cur.p,
-                    { stack.add(Scr.Analogs(cur.p)) }, { stack.add(Scr.Pick(cur.p)) })
+                    { stack.add(Scr.Analogs(cur.p)) }, { stack.add(Scr.Pick(cur.p)) },
+                    { stack.add(Scr.Pinout(cur.p)) })
                 cur is Scr.Analogs -> AnalogsScreen(cur.p) { stack.add(Scr.Compare(cur.p, it)) }
                 cur is Scr.Pick -> CatalogScreen { stack.add(Scr.Compare(cur.base, it)) }
                 cur is Scr.Compare -> CompareScreen(cur.a, cur.b)
+                cur is Scr.Pinout -> PinoutScreen(cur.p)
                 tab == 0 -> CatalogScreen { stack.add(Scr.Detail(it)) }
                 tab == 1 -> SmdScreen { stack.add(Scr.Detail(it)) }
+                tab == 2 -> WorkshopScreen({ stack.add(Scr.Detail(it)) }, { stack.add(Scr.Pinout(it)) })
                 else -> FavScreen { stack.add(Scr.Detail(it)) }
             }
         }
@@ -324,7 +330,7 @@ fun ParamGrid(vararg ps: Part) {
 }
 
 @Composable
-fun DetailScreen(p: Part, onAnalogs: () -> Unit, onCompare: () -> Unit) {
+fun DetailScreen(p: Part, onAnalogs: () -> Unit, onCompare: () -> Unit, onPinout: () -> Unit) {
     val ctx = LocalContext.current
     val codes = MarkRepo.forPart(p.mpn)
     LazyColumn(Modifier.padding(horizontal = 16.dp), contentPadding = PaddingValues(bottom = 24.dp)) {
@@ -368,9 +374,11 @@ fun DetailScreen(p: Part, onAnalogs: () -> Unit, onCompare: () -> Unit) {
             Spacer(Modifier.height(10.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 OutlinedButton(onCompare, Modifier.weight(1f).height(48.dp), shape = CircleShape) { Text("Сравнить") }
-                OutlinedButton({ ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(p.url))) },
-                    Modifier.weight(1f).height(48.dp), shape = CircleShape) { Text("Даташит") }
+                OutlinedButton(onPinout, Modifier.weight(1f).height(48.dp), shape = CircleShape) { Text("Цоколёвка") }
             }
+            Spacer(Modifier.height(10.dp))
+            OutlinedButton({ ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(p.url))) },
+                Modifier.fillMaxWidth().height(48.dp), shape = CircleShape) { Text("Открыть даташит") }
             Spacer(Modifier.height(12.dp))
             Text("Справочные значения. Перед заменой сверяйтесь с даташитом.",
                 fontSize = 11.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
